@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header{
+width: 100%;
+z-index: 1;/*para volver un obetjo tridimencional para que los card pasen por debajo de este objeto*/
+}
+.headerStyle{
+color:#254ca1 ;
+}
+.datosPersonajes{
+
+    margin-top: 140px;
+    margin-bottom: 60px;
+}
+.pagination{
+    justify-content: center;
+}
