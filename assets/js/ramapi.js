@@ -33,36 +33,17 @@ const paginacion = (data) => {
   let preDisabled = "";
   let nextDisabled = "";
 
-//if de manera antigua sin optimizar
-//   if (data.prev == null) {
-//     preDisabled = "disabled";
-//   } else {
-//     preDisabled = "";
-//   }
+  // forma simplificada conocido como operardor ternario
+  data.previous == null ? (preDisabled = "disabled") : (preDisabled = "");
+  data.next == null ? (nextDisabled = "disabled") : (nextDisabled = "");
 
-//   if (data.next == null) {
-//     nextDisabled = "disabled";
-//   } else {
-//     nextDisabled = "";
-//   }
+  //forma 'sin optimizar
+  let html = "";
+  html += `<li class="page-item ${preDisabled}"><a class="page-link" onclick="getData('${data.previous}')">Previous</a></li>`;
+  html += `<li class="page-item ${nextDisabled}"><a class="page-link" onclick="getData('${data.next}')">NEXT</a></li>`;
 
-//otra forma de simplificar el if cuando solo es una condicion a comparar forma simplificada conocido como operardor ternario
- data.previous ==null ? preDisabled ="disabled" : preDisabled ="";
- data.next ==null ? nextDisabled ="disabled" : nextDisabled ="";
-
-
-//forma 'sin optimizar
- let html="";
- html += `<li class="page-item ${preDisabled}"><a class="page-link" onclick="getData('${data.previous}')">Previous</a></li>`;
- html += `<li class="page-item ${nextDisabled}"><a class="page-link" onclick="getData('${data.next}')">NEXT</a></li>`;
-
-
-//forma optimizada de lo anterior
-//  let html = `<li class="page-item ${preDisabled}"><a class="page-link" onclick="getData('${data.prev}')">Previous</a></li><li class="page-item ${nextDisabled}"><a class="page-link" onclick="getData('${data.next}')">NEXT</a></li>`;
-  
-
-  //forma optimizada en conjunto con el operador ternario y lo anterior 
-  // let html = `<li class="page-item ${data.prev ==null ? preDisabled ="disabled" : preDisabled =""}"><a class="page-link" onclick="getData('${data.prev}')">Previous</a></li><li class="page-item ${data.next ==null ? nextDisabled ="disabled" : nextDisabled =""}"><a class="page-link" onclick="getData('${data.next}')">NEXT</a></li>`;
+  //forma optimizada de lo anterior
+  //  let html = `<li class="page-item ${preDisabled}"><a class="page-link" onclick="getData('${data.prev}')">Previous</a></li><li class="page-item ${nextDisabled}"><a class="page-link" onclick="getData('${data.next}')">NEXT</a></li>`;
 
   document.getElementById("paginacion").innerHTML = html;
 };
